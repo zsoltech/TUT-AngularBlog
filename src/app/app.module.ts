@@ -3,14 +3,49 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { PostComponent } from './post/post.component';
+import { MainComponent } from './main/main.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostComponent,
+    MainComponent,
+    UserComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+        // Angular    
+        BrowserModule,    
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+    
+        //App
+        AppRoutingModule,
+    
+        // Material
+        MatToolbarModule,
+        MatInputModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

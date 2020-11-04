@@ -1,0 +1,37 @@
+@import "../theme.scss";
+$accent: map-get($theme, accent);
+.header {
+    height: 5px;
+    background-color: mat-color($accent);
+}
+.container {
+    padding-top: 20px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+p.footer {
+    font-size: 12px;
+    font-weight: lighter;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+
+h1.title {
+    font-weight: 300 !important; 
+    font-size: 40px !important;
+    flex: 1 1 auto;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+span.color {
+    color: mat-color($accent);
+}
+
+a {
+    color: mat-color($accent);
+}
