@@ -8,12 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PostComponent } from './post/post.component';
@@ -40,12 +38,10 @@ import { UserComponent } from './user/user.component';
         MatToolbarModule,
         MatInputModule,
         MatIconModule,
-        MatSidenavModule,
         MatListModule,
         MatFormFieldModule,
         MatButtonModule,
         MatCheckboxModule,
-        MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,15 +13,17 @@
 
       <span class="fill-space"></span>
 
-      <div>
+      <!-- <div>
         <a mat-button> English </a>
         <a mat-button> Magyar </a>
-      </div>
+      </div> -->
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="container" fxFlex>
-    <router-outlet></router-outlet>
+  <div class="container" fxFlex fxLayout="row" fxLayoutAlign="center none">
+    <div class="content" fxFlex="50">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
   <mat-toolbar color="primary" class="fixed-navbar mat-elevation-z10">

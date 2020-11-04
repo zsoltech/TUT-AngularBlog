@@ -1,5 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+@import "theme.scss";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
- 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$accent: map-get($theme, accent);
+
+.header {
+    height: 5px;
+    background-color: mat-color($accent);
+}
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+p {
+    &.footer {
+        font-size: 16px;
+        font-weight: lighter;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+}
+
+h1 {
+    &.title {
+        font-weight: 300 !important;
+        font-size: 40px !important;
+        flex: 1 1 auto;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+}
+
+span {
+    &.color {
+        color: mat-color($accent);
+    }
+}
+
+a {
+    color: mat-color($accent);
+}
+
+.content {
+    padding: 1rem;
+    background: darken($color: #fff, $amount: 5);
+    border-radius: 1rem;
+
+    h2 {
+        font-weight: 300 !important;
+        font-size: 30px !important;
+        letter-spacing: 3px;
+    }
+}
