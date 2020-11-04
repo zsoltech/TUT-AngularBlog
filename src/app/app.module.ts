@@ -17,13 +17,15 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { PostComponent } from './post/post.component';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     MainComponent,
-    UserComponent
+    UserComponent,
+    PostsComponent
   ],
   imports: [
         // Angular    
