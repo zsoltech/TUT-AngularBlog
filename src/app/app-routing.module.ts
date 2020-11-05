@@ -4,10 +4,10 @@ import { PostsComponent } from './posts/posts.component';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
 
-const routes: Routes = [
-  { path: '**', component: MainComponent },
+const routes: Routes = [  
   { path: 'posts', component: PostsComponent },  
   { path: 'users', component: UserComponent },
+  { path: '**', component: MainComponent },
 ];
 
 @NgModule({

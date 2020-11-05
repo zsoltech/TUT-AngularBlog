@@ -50,11 +50,16 @@ span {
 
 a {
     color: mat-color($accent);
+    cursor: pointer;
+}
+
+a:hover {
+    color: darken($color:mat-color($accent), $amount: 20);
 }
 
 .content {
     padding: 1rem;
-    background: darken($color: #fff, $amount: 5);
+    //background: darken($color: #fff, $amount: 5);
     border-radius: 1rem;
 
     h2 {
