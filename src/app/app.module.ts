@@ -12,11 +12,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PostComponent } from './post/post.component';
 import { MainComponent } from './main/main.component';
-import { UserComponent } from './user/user.component';
 import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
@@ -24,8 +24,7 @@ import { PostsComponent } from './posts/posts.component';
     AppComponent,
     PostComponent,
     MainComponent,
-    UserComponent,
-    PostsComponent
+    PostsComponent,    
   ],
   imports: [
         // Angular    
@@ -44,8 +43,9 @@ import { PostsComponent } from './posts/posts.component';
         MatFormFieldModule,
         MatButtonModule,
         MatCheckboxModule,
+        MatMenuModule,
   ],
-  providers: [],
+  providers: [  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

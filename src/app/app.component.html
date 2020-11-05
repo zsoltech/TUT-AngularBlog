@@ -8,7 +8,12 @@
       <div>
         <a mat-button [routerLink]="'/'"> Főoldal </a>
         <a mat-button [routerLink]="'/posts'"> Bejegyzések </a>
-        <a mat-button [routerLink]="'/users'"> Felhasználók </a>
+
+        <button mat-button [matMenuTriggerFor]="menu">Admin</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="'/admin/users'">Felhasználók</button>
+          <button mat-menu-item [routerLink]="'/admin/settings'">Beállítások</button>
+        </mat-menu>        
       </div>
 
       <span class="fill-space"></span>
