@@ -1,1 +1,12 @@
-<p>posts works!</p>
+<h2>Saját bejegyzéseim</h2>
+<ul class="posts">
+    <li *ngFor="let post of model" (click)="onClick(post)">
+        <span class="badge">{{post.id}}</span> {{post.title}}
+    </li>
+</ul>
+
+<a mat-button routerLink="/post/1">Első</a>
+<a mat-button [routerLink]="['/post/', 2]">Második</a>
+
+<a mat-button [routerLink]="['/post/', 1]" [queryParams]="{ userId: '1', id: '2'}">Harmadik</a>
+<a mat-button (click)="onQuery()">Query backend</a>
