@@ -18,6 +18,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { PostComponent } from './post/post.component';
 import { MainComponent } from './main/main.component';
 import { PostsComponent } from './posts/posts.component';
+import { API_BASE_URL, PostService } from './serivces/post.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { PostInterceptor } from './serivces/post.interceptor';
+
+export function getBaseUrl(): string {
+  return 'https://jsonplaceholder.typicode.com';
+}
 
 @NgModule({
   declarations: [
@@ -31,6 +39,7 @@ import { PostsComponent } from './posts/posts.component';
         BrowserModule,    
         BrowserAnimationsModule,
         FlexLayoutModule,
+        HttpClientModule,
     
         //App
         AppRoutingModule,
@@ -45,7 +54,18 @@ import { PostsComponent } from './posts/posts.component';
         MatCheckboxModule,
         MatMenuModule,
   ],
-  providers: [  ],
+  providers: [ 
+    PostService,
+
+    //{ provide: API_BASE_URL, useFactory: getBaseUrl },
+    { provide: API_BASE_URL, useValue: environment.apiRoot },
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PostInterceptor,
+      multi: true
+    }
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
