@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
 import { MainComponent } from './main/main.component';
 import { PostComponent } from './post/post.component';
+import { PostCreateComponent } from './post-create/post-create.component';
 
 const routes: Routes = [
   { path: 'posts', component: PostsComponent },
   { path: 'main', component: MainComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
 
+  { path: 'post/create', component: PostCreateComponent },
   { path: 'post/:id', component: PostComponent },
 
   // {

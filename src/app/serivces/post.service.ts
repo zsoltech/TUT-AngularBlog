@@ -32,7 +32,7 @@ export class PostService {
     return this.http.get<Post>(url);
   }
 
-  addPost(post: Post): void {
+  addPost(post: Post): Observable<Object> {
     let url = this.baseUrl + '/posts';
 
     let options = {
@@ -42,6 +42,6 @@ export class PostService {
       })
     };
 
-    this.http.post(url, JSON.stringify(post), options);
+    return this.http.post(url, JSON.stringify(post), options);
   }
 }

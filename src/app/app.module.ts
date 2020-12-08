@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PostComponent } from './post/post.component';
@@ -22,6 +24,9 @@ import { API_BASE_URL, PostService } from './serivces/post.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { PostInterceptor } from './serivces/post.interceptor';
+import { PostCreateComponent } from './post-create/post-create.component';
+
+import { ReactiveFormsModule } from '@angular/forms'
 
 export function getBaseUrl(): string {
   return 'https://jsonplaceholder.typicode.com';
@@ -32,7 +37,8 @@ export function getBaseUrl(): string {
     AppComponent,
     PostComponent,
     MainComponent,
-    PostsComponent,    
+    PostsComponent,
+    PostCreateComponent,    
   ],
   imports: [
         // Angular    
@@ -40,6 +46,7 @@ export function getBaseUrl(): string {
         BrowserAnimationsModule,
         FlexLayoutModule,
         HttpClientModule,
+        ReactiveFormsModule,
     
         //App
         AppRoutingModule,
@@ -53,6 +60,8 @@ export function getBaseUrl(): string {
         MatButtonModule,
         MatCheckboxModule,
         MatMenuModule,
+        MatChipsModule,
+        MatSelectModule
   ],
   providers: [ 
     PostService,

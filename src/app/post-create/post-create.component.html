@@ -1,0 +1,143 @@
+<h1>Bejegyzés hozzáadása</h1>
+<h2>Normal form</h2>
+<form [formGroup]="form" fxLayout="column" (ngSubmit)="submitForm()">
+ 
+    value: {{ form.value | json }}
+
+    <hr>
+
+    <mat-form-field>
+        <mat-label>Cím</mat-label>
+        <input matInput formControlName="title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tartalom</mat-label>
+        <textarea matInput formControlName="body"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Felhasználó</mat-label>
+        <mat-select formControlName="userId">
+                <mat-option value="1">Gipsz Jakab</mat-option>
+                <mat-option value="2">XZY</mat-option>
+                <mat-option value="3">John Doe</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="form.invalid">Küldés</button>
+</form>
+
+
+<h2>Nested form</h2>
+<form [formGroup]="nestedForm" fxLayout="column">
+ 
+    value: {{ nestedForm.value | json }}
+
+    <hr>
+
+    <mat-form-field>
+        <mat-label>Cím</mat-label>
+        <input matInput formControlName="title" >
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tartalom</mat-label>
+        <textarea matInput formControlName="body"></textarea>
+    </mat-form-field>
+
+    <p>Szerző</p>
+    <div formGroupName="author">
+        <mat-form-field>
+            <mat-label>Név</mat-label>
+            <input matInput formControlName="name" >
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" >
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Jelszó</mat-label>
+            <input matInput formControlName="password" >
+
+            <mat-hint>Legalább egy nagybetű és 8 karakter minimum</mat-hint>
+            <mat-error *ngIf="password.invalid && password.touched">
+                Rossz Jelszó
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Kor</mat-label>
+            <input matInput formControlName="age" >
+
+            <mat-error *ngIf="age.errors?.min && age.touched">
+                {{age.errors.min.actual }} évesen túl fiatal vagy...
+            </mat-error>
+            <mat-error *ngIf="age.errors?.max && age.touched">
+                {{age.errors.max.actual }} évesen túl öreg vagy...
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <p>Szerkesztő</p>
+    <div formGroupName="editor">
+        <mat-form-field>
+            <mat-label>Név</mat-label>
+            <input matInput formControlName="name" >
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" >
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Jelszó</mat-label>
+            <input matInput formControlName="password" >
+        </mat-form-field>
+    </div>
+
+</form>
+
+<h2>Dynamic form</h2>
+<form [formGroup]="dynamicForm" fxLayout="column" (ngSubmit)="submitForm()">
+ 
+    value: {{ dynamicForm.value | json }}
+
+    <hr>
+
+    <mat-form-field>
+        <mat-label>Cím</mat-label>
+        <input matInput formControlName="title" >
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tartalom</mat-label>
+        <textarea matInput formControlName="body"></textarea>
+    </mat-form-field>
+
+    <div formArrayName="users">
+        <div *ngFor="let user of userForm.controls; let i = index" [formGroupName]="i" flexLayout="row" fxLayoutAlign="space-between center">            
+            <mat-form-field>
+                <mat-label>Név</mat-label>
+                <input matInput formControlName="name" >
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" >
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Jelszó</mat-label>
+                <input matInput formControlName="password" >
+            </mat-form-field>
+
+            <button mat-raised-button color="warn" (click)="deleteUser(i)">törlés</button>
+        </div>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="addUser()">+ felhasználó</button>
+</form>

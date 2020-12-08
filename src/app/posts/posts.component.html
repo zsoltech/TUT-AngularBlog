@@ -1,4 +1,5 @@
 <h2>Saját bejegyzéseim</h2>
+<a routerLink="/post/create">Új bejegyzés létrehozása</a>
 <ul class="posts">
     <li *ngFor="let post of model" (click)="onClick(post)">
         <span class="badge">{{post.id}}</span> {{post.title}}
